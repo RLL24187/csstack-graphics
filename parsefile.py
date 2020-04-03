@@ -70,7 +70,12 @@ def parse_file( fname, edges, polygons, csystems, screen, color ):
             c+= 1
             args = lines[c].strip().split(' ')
 
-        if line == 'sphere':
+        if line == 'push':
+            temp = copy.deepcopy(csystems[len(csystems) - 1])
+            csystems.append(temp)
+        elif line == 'pop':
+            csystems.pop()
+        elif line == 'sphere':
             #print 'SPHERE\t' + str(args)
             add_sphere(polygons,
                        float(args[0]), float(args[1]), float(args[2]),
