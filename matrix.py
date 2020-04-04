@@ -9,6 +9,13 @@ z0  z1  ... zn
 """
 import math
 
+def copy(m0, m1):
+    for i in range(len(m0)):
+        row = []
+        for j in range(len(m0[0])):
+            row.append(m0[i][j])
+        m1.append(row)
+
 def make_bezier():
     return [
         [-1, 3, -3, 1],
